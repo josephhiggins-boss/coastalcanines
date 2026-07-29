@@ -60,6 +60,8 @@ form.addEventListener("submit", async (e) => {
     _subject: `🐾 Booking request from ${data.get("name")} — Coastal Canines`,
     _template: "table",
     _captcha: "false",
+    // makes "Reply" in the inbox go straight to the customer
+    _replyto: data.get("email"),
     "Name": data.get("name"),
     "Email": data.get("email"),
     "Phone": data.get("phone") || "Not given",
