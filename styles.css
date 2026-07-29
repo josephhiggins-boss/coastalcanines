@@ -54,6 +54,10 @@ p { text-wrap: pretty; }
 a { color: inherit; }
 img, svg { display: block; max-width: 100%; }
 
+/* the [hidden] attribute must always win — author `display` rules
+   (e.g. .booking-tabs{display:grid}) otherwise override the UA default */
+[hidden] { display: none !important; }
+
 a, button, select, input, textarea, .chip {
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
@@ -542,7 +546,7 @@ a, button, select, input, textarea, .chip {
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--sea) 45%, transparent);
 }
 
-.booking-panel[hidden] { display: none; }
+/* covered by the global [hidden] rule above */
 
 #cal-embed {
   background: var(--white-warm);
