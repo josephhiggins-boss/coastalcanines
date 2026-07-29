@@ -45,20 +45,23 @@ A ready-made "Kind words" section is in `index.html`, commented out
 remove the `<!-- -->` comment markers.
 
 ## Where it lives online
-**Preview URL: https://jo3vo.io/coastal/** — served from the jo3voSite repo
-(Cloudflare Pages). The site was copied into
-`E:\Projects\jo3voSite\public\coastal\`; pushing jo3voSite to GitHub main
-auto-deploys it.
+**Canonical: https://coastalcanines.ie** — GitHub Pages from the repo
+`josephhiggins-boss/coastalcanines` (this folder IS that repo; `CNAME` file
+holds the domain). To publish changes: commit here and `git push`. Done.
 
-**To publish changes:** edit the files HERE (C:\Projects\coastal-canines is
-the source of truth), then copy `index.html`, `styles.css`, `script.js` and
-`assets/` into `E:\Projects\jo3voSite\public\coastal\` and push jo3voSite.
+**DNS (set at the .ie registrar, one-time):**
+- 4 × A records on `@`: 185.199.108.153, 185.199.109.153,
+  185.199.110.153, 185.199.111.153
+- CNAME on `www` → `josephhiggins-boss.github.io`
+After DNS resolves, enable "Enforce HTTPS" in the repo's Pages settings
+(GitHub provisions the certificate automatically, can take up to a day).
 
-**When it's ready for real customers**, give it its own home:
-1. **Netlify Drop** — drag this folder onto https://app.netlify.com/drop,
-   or a proper domain (e.g. coastalcanines.ie) pointed at it.
-2. Add the URL to the Instagram bio — that's where her customers will find it.
-3. Optionally retire the /coastal path from jo3vo.io afterwards.
+**Temporary preview: https://jo3vo.io/coastal/** — a copy in
+`E:\Projects\jo3voSite\public\coastal\` (Cloudflare Pages). Retire it once
+the .ie domain is live (delete that folder and push jo3voSite).
+
+When live, put https://coastalcanines.ie in the Instagram bio — that's where
+her customers will find it.
 
 ## Design notes
 - Palette comes from her logo: powder blue + navy, plus warm sand and a
