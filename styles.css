@@ -501,6 +501,59 @@ a, button, select, input, textarea, .chip {
 .booking-alt { margin-top: 1.6rem; font-size: 0.98rem; color: var(--ink-soft); }
 .booking-alt a { font-weight: 700; color: var(--sea-deep); }
 
+/* --- booking tabs (shown only when the calendar is connected) --- */
+.booking-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  background: color-mix(in oklab, var(--ink) 6%, transparent);
+  padding: 0.4rem;
+  border-radius: 14px;
+}
+.booking-tab {
+  font: inherit;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  padding: 0.7rem 0.6rem;
+  border-radius: 10px;
+  line-height: 1.25;
+  transition: background 0.2s var(--ease-out), color 0.2s, box-shadow 0.2s;
+}
+.booking-tab span {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  opacity: 0.75;
+  margin-top: 0.15rem;
+}
+.booking-tab:hover { color: var(--ink); }
+.booking-tab[aria-selected="true"] {
+  background: var(--white-warm);
+  color: var(--ink);
+  box-shadow: 0 2px 8px -3px color-mix(in oklab, var(--ink) 35%, transparent);
+}
+.booking-tab:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--sea) 45%, transparent);
+}
+
+.booking-panel[hidden] { display: none; }
+
+#cal-embed {
+  background: var(--white-warm);
+  border-radius: var(--radius-soft);
+  overflow: hidden;
+  min-height: 32rem;
+  box-shadow:
+    0 1px 2px color-mix(in oklab, var(--ink) 10%, transparent),
+    0 24px 48px -24px color-mix(in oklab, var(--ink) 35%, transparent);
+}
+
 .booking-form {
   background: var(--white-warm);
   border-radius: var(--radius-soft);

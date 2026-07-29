@@ -261,13 +261,32 @@
         <div class="booking-copy reveal">
           <p class="eyebrow"><span class="eyebrow-rule"></span>Book a session</p>
           <h2>Let's get those tails wagging</h2>
-          <p>Tell us a little about your dog and what you'd like help with. It's a request, not a commitment — you'll get a friendly reply to arrange a time that suits you.</p>
+          <p id="copy-enquiry">Tell us a little about your dog and what you'd like help with. It's a request, not a commitment — you'll get a friendly reply to arrange a time that suits you.</p>
+          <p id="copy-field" hidden>Pick a day and time that suits and the field is yours — you'll get an instant confirmation by email. Bring the treats, we'll bring the space.</p>
           <div class="booking-alt">
             <p>Prefer Instagram? <a href="https://www.instagram.com/_coastalcanines" target="_blank" rel="noopener">Send a DM instead</a>.</p>
           </div>
         </div>
 
-        <form class="booking-form reveal delay-1" id="booking-form" novalidate>
+        <div class="booking-panels reveal delay-1">
+          <!-- Tabs appear only once the calendar is connected (CAL_LINK in script.js) -->
+          <div class="booking-tabs" id="booking-tabs" role="tablist" aria-label="Booking options" hidden>
+            <button class="booking-tab" id="tab-field" role="tab" aria-controls="panel-field" aria-selected="true" type="button">
+              Book the field
+              <span>Pick a slot instantly</span>
+            </button>
+            <button class="booking-tab" id="tab-enquiry" role="tab" aria-controls="panel-enquiry" aria-selected="false" type="button">
+              Training enquiry
+              <span>We'll be in touch</span>
+            </button>
+          </div>
+
+          <div class="booking-panel" id="panel-field" role="tabpanel" aria-labelledby="tab-field" hidden>
+            <div id="cal-embed"></div>
+          </div>
+
+          <div class="booking-panel" id="panel-enquiry" role="tabpanel" aria-labelledby="tab-enquiry">
+        <form class="booking-form" id="booking-form" novalidate>
           <div class="field-row">
             <div class="field">
               <label for="f-name">Your name</label>
@@ -320,6 +339,8 @@
           <p class="form-note">We'll only use your details to reply about training. No spam, ever.</p>
           <div class="form-feedback" role="status" aria-live="polite"></div>
         </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>

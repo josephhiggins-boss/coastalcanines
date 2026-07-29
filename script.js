@@ -11,6 +11,16 @@
    ------------------------------------------------------------ */
 const BOOKING_EMAIL = "josephhiggins91@gmail.com"; // TODO: change to Mum's email
 
+/* ------------------------------------------------------------
+   FIELD-HIRE CALENDAR — real slot booking via Cal.com (free).
+   Leave this as "" and the site quietly shows just the enquiry
+   form, exactly as before — visitors never see a broken tab.
+   Once the Cal.com account exists, put the booking link here,
+   WITHOUT the https://cal.com/ part. See README, step 5.
+   Example: "coastalcanines/field-hire"
+   ------------------------------------------------------------ */
+const CAL_LINK = "";
+
 /* ---------- reveal on scroll ---------- */
 const revealEls = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window) {
@@ -33,6 +43,83 @@ if ("IntersectionObserver" in window) {
 /* ---------- footer year ---------- */
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+/* ---------- field-hire calendar (Cal.com inline embed) ---------- */
+function initCalendar() {
+  if (!CAL_LINK) return; // not connected yet — enquiry form stands alone
+
+  const tabs = document.getElementById("booking-tabs");
+  const tabField = document.getElementById("tab-field");
+  const tabEnquiry = document.getElementById("tab-enquiry");
+  const panelField = document.getElementById("panel-field");
+  const panelEnquiry = document.getElementById("panel-enquiry");
+
+  // Cal.com loader snippet
+  (function (C, A, L) {
+    let p = function (a, ar) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal;
+      let ar = arguments;
+      if (!cal.loaded) {
+        cal.ns = {};
+        cal.q = cal.q || [];
+        d.head.appendChild(d.createElement("script")).src = A;
+        cal.loaded = true;
+      }
+      if (ar[0] === L) {
+        const api = function () { p(api, arguments); };
+        const namespace = ar[1];
+        api.q = api.q || [];
+        if (typeof namespace === "string") {
+          cal.ns[namespace] = cal.ns[namespace] || api;
+          p(cal.ns[namespace], ar);
+          p(cal, ["initNamespace", namespace]);
+        } else p(cal, ar);
+        return;
+      }
+      p(cal, ar);
+    };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+
+  Cal("init", { origin: "https://cal.com" });
+  Cal("inline", {
+    elementOrSelector: "#cal-embed",
+    calLink: CAL_LINK,
+    config: { layout: "month_view", theme: "light" },
+  });
+  Cal("ui", {
+    hideEventTypeDetails: false,
+    layout: "month_view",
+    cssVarsPerTheme: { light: { "cal-brand": "#d96a45" } },
+  });
+
+  // reveal the tabs, calendar first
+  tabs.hidden = false;
+  panelField.hidden = false;
+  panelEnquiry.hidden = true;
+
+  const copyField = document.getElementById("copy-field");
+  const copyEnquiry = document.getElementById("copy-enquiry");
+
+  function select(which) {
+    const field = which === "field";
+    tabField.setAttribute("aria-selected", String(field));
+    tabEnquiry.setAttribute("aria-selected", String(!field));
+    panelField.hidden = !field;
+    panelEnquiry.hidden = field;
+    // the intro copy follows the tab
+    copyField.hidden = !field;
+    copyEnquiry.hidden = field;
+  }
+  select("field");
+  tabField.addEventListener("click", () => select("field"));
+  tabEnquiry.addEventListener("click", () => select("enquiry"));
+
+  // deep link: coastalcanines.ie/#book-field opens the calendar tab
+  if (location.hash === "#book-field") select("field");
+}
+initCalendar();
 
 /* ---------- booking form ---------- */
 const form = document.getElementById("booking-form");
