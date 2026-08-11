@@ -9,7 +9,7 @@
    the FIRST submission emails a one-time confirmation link to
    this address — click it once and everything works after that.
    ------------------------------------------------------------ */
-const BOOKING_EMAIL = "josephhiggins91@gmail.com"; // TODO: change to Mum's email
+const BOOKING_EMAIL = "clare@coastalcanines.ie";
 
 /* ------------------------------------------------------------
    FIELD-HIRE CALENDAR — real slot booking via Cal.com (free).
