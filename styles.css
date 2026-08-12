@@ -432,7 +432,22 @@ a, button, select, input, textarea, .chip {
 
 .about-photo { max-width: 21rem; justify-self: center; }
 
-.about-copy h2 { margin-bottom: 1.1rem; }
+.about-copy h2 { margin-bottom: 0.9rem; }
+
+/* credential strip — factual, not a badge; earns trust by being specific */
+.about-creds {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  /* sea-deep alone is 4.14:1 on sand — stepped toward ink. See DESIGN.md */
+  color: color-mix(in oklab, var(--sea-deep) 80%, var(--ink)) !important;
+  line-height: 1.6;
+  margin-bottom: 1.2rem !important;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid color-mix(in oklab, var(--ink) 12%, transparent);
+  max-width: 32rem;
+}
 .about-copy p { color: var(--ink-soft); margin-bottom: 1rem; max-width: 36rem; }
 .about-copy em { font-style: italic; color: var(--ink); }
 

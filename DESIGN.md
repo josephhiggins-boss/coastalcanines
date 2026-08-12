@@ -70,9 +70,14 @@ element (≥3:1). Anywhere it must carry normal-weight body text, step it toward
 - Reference research done for field-hire/rules only; training-side refs still outstanding
 - **No spacing token scale.** Values are ad-hoc rems chosen to match neighbours. Fine at this
   size, but a `--space-*` ramp should land before the page grows further
-- "Before you visit" copy is Clare's own dictated wording, lightly tidied. One dictated
+- "Before you visit" copy is Claire's own dictated wording, lightly tidied. One dictated
   sentence was cut off mid-thought ("…make sure that your dog is …") and is **deliberately
   omitted** rather than guessed — likely a vaccination requirement; confirm and add
+- **Never re-add "force-free" / "no scary equipment" / "no dominance nonsense."** That was
+  invented placeholder copy and is wrong for this trainer: Claire competes in IGP, which
+  includes protection work, and "force-free" is a loaded factional term she did not claim.
+  Her actual stated philosophy is "a positive environment, helping the dog understand the
+  exercise" — use her words
 - Liability wording is plain-English, not legally drafted. A disclaimer on a page does not
   by itself limit liability — public liability insurance is the real control
 - Pre-launch TODOs live in `README.md` — check both before launch
