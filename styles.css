@@ -353,6 +353,30 @@ a, button, select, input, textarea, .chip {
 }
 .service h3 { margin-bottom: 0.6rem; }
 .service p { color: var(--ink-soft); max-width: 30rem; }
+/* field-hire price tiers — plain numbers, no "pricing card" theatre */
+.price-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.6rem;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid color-mix(in oklab, var(--ink) 14%, transparent);
+}
+.price-list li { display: flex; align-items: baseline; gap: 0.4rem; }
+.price-amt {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 620;
+  color: var(--ink);
+  line-height: 1;
+}
+.price-for {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
 .service-meta {
   margin-top: 0.8rem;
   font-size: 0.85rem;
