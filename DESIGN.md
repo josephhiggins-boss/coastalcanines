@@ -66,6 +66,18 @@ element (≥3:1). Anywhere it must carry normal-weight body text, step it toward
 `color-mix(in oklab, var(--sea-deep) 80%, var(--ink))` → 5.24:1. Applied in
 `.visit-lead-line`. This confirms the warning above — re-run these numbers if a shade moves.
 
+## Photography (the non-negotiable above)
+- **Hero: real.** `assets/field-hero.jpg` — Claire's own photo of the field looking out over
+  the estuary. Cropped from a phone screenshot: letterbox bars stripped, then cropped right
+  and up to remove a bench and yellow kayak in the near foreground. 900×900, q82 progressive.
+- **Social: real.** `assets/field-og.jpg` — 1200×630 from the same frame, used for `og:image`,
+  `twitter:image` (now `summary_large_image`) and the LocalBusiness `image`.
+- **Still placeholder: the About portrait.** Reads "photo coming soon". A photo of Claire with
+  her German Shepherds is the highest-value remaining asset — it pairs with the World
+  Championship credential and is what makes the About section land.
+- Source frames are phone screenshots, so resolution is capped. If originals exist, re-cut
+  from those rather than upscaling these.
+
 ## Open UI debt
 - Reference research done for field-hire/rules only; training-side refs still outstanding
 - **No spacing token scale.** Values are ad-hoc rems chosen to match neighbours. Fine at this
